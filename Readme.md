@@ -3,6 +3,8 @@ A simple structured data logger.  Pass it a hash, and it takes care of storing i
 
 ## Usage
 ```ruby
+require 'datalogger'
+
 logger = DataLogger::Logger.new('myapp')
 logger.log a: 1, b: 2, c: 3
 ```
@@ -16,6 +18,8 @@ myapp a=1 b=2 c=3
 Or, perhaps you'd like to log how long it takes to perform a given action:
 
 ```ruby
+require 'datalogger'
+
 logger = DataLogger::Logger.new('myapp')
 logger.log(event: 'create_user') do
   # code to create a user 
