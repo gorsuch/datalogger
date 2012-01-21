@@ -18,7 +18,7 @@ Or, perhaps you'd like to log how long it takes to perform a given action:
 ```ruby
 logger = DataLogger::Logger.new('myapp')
 logger.log(event: 'create_user') do
-  # code to create some user 
+  # code to create a user 
 end
 ```
 
