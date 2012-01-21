@@ -25,6 +25,6 @@ end
 This will generate a message that looks something like so:
 
 ```
-myapp event=create_user at=start
-myapp event=create_user at=finish elapsed=0.003116
+myapp action=create_user at=start
+myapp action=create_user at=finish elapsed=0.003116
 ```
