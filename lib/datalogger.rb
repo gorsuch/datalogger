@@ -1,6 +1,6 @@
 require "datalogger/version"
 require "datalogger/logger"
-require "datalogger/stdout_sink"
+require "datalogger/sinks/stdout"
 
 module DataLogger
 end
