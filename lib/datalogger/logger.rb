@@ -5,7 +5,7 @@ module DataLogger
     def initialize(component='app')
       self.component = component
       self.sinks = []
-      self.sinks << STDOUTSink.new
+      self.sinks << Sinks::STDOUT.new
     end
 
     def log_to_sinks(data)
