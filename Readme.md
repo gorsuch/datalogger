@@ -12,3 +12,19 @@ This will generate a log message to stdout that looks like so:
 ```
 myapp a=1 b=2 c=3
 ```
+
+Or, perhaps you'd like to log how long it takes to perform a given action:
+
+```ruby
+logger = DataLogger::Logger.new('myapp')
+logger.log(event: 'create_user') do
+  # code to create some user 
+end
+```
+
+This will generate a message that looks something like so:
+
+```
+myapp event=create_user at=start
+myapp event=create_user at=finish elapsed=0.003116
+```
