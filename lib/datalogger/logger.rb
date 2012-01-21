@@ -8,13 +8,24 @@ module DataLogger
       self.sinks << STDOUTSink.new
     end
 
-    def log(data)
+    def log_to_sinks(data)
+      self.sinks.each do |sink|
+        sink.log(self.component, data)
+      end
+    end
+
+    def log(data, &blk)
       if data.kind_of?(String)
         data = { message: data }
       end
-
-      self.sinks.each do |sink|
-        sink.log(component, data)
+   
+      if blk
+        start = Time.now
+        log_to_sinks(data.merge at: 'start')
+        yield
+        log_to_sinks(data.merge at: 'finish', elapsed: (Time.now - start))
+      else
+        log_to_sinks(data)
       end
     end
   end
