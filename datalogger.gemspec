@@ -13,5 +13,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "datalogger"
   gem.require_paths = ["lib"]
-  gem.version       = Datalogger::VERSION
+  gem.version       = DataLogger::VERSION
 end
