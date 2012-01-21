@@ -6,12 +6,9 @@ module DataLogger
       self.component = component
     end
 
-    def stringify_data(data)
-      data.inject("") { |s, (k,v)| s + "#{k}=#{v} " }.strip
-    end
-
     def log(data)
-      puts "#{self.component} #{stringify_data(data)}"
+      stdout = STDOUTSink.new
+      stdout.log(component, data)
     end
   end
 end
