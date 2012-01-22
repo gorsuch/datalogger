@@ -18,4 +18,11 @@ describe DataLogger::Logger do
     l = DataLogger::Logger.new('non-default')
     l.component.must_equal('non-default')
   end
+
+  describe "puts" do
+    it "must be an alias for log" do
+      l = DataLogger::Logger.new
+      l.method(:log).must_equal l.method(:puts)
+    end
+  end
 end

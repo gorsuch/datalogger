@@ -28,5 +28,7 @@ module DataLogger
         log_to_sinks(data)
       end
     end
+
+    alias_method :puts, :log
   end
 end
