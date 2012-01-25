@@ -31,5 +31,7 @@ module DataLogger
         nil
       end
     end
+
+    alias_method :puts, :log
   end
 end
