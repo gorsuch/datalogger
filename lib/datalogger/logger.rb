@@ -20,12 +20,15 @@ module DataLogger
       end
    
       if blk
+        ret = nil
         start = Time.now
         log_to_sinks(data.merge at: 'start')
-        yield
+        ret = yield
         log_to_sinks(data.merge at: 'finish', elapsed: (Time.now - start))
+        ret
       else
         log_to_sinks(data)
+        nil
       end
     end
   end
