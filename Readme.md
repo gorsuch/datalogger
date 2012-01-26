@@ -50,6 +50,8 @@ DataLogger::Logger.log a: 1, b: 2, c: 3
 ```ruby
 require 'datalogger'
 
+DataLogger::Logger.component = 'myapp'
+
 class MyThing
   include DataLogger
   
@@ -64,6 +66,8 @@ end
 ### Mixing in class methods
 ```ruby
 require 'datalogger'
+
+DataLogger::Logger.component = 'myapp'
 
 class MyThing
   extend DataLogger
