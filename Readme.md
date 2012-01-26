@@ -2,6 +2,7 @@
 A simple structured data logger.  Pass it a hash, and it takes care of storing it to the data sink of your choice (currently stdout, though plugins are on the way).
 
 ## Usage
+### The most obvious way:
 ```ruby
 require 'datalogger'
 
@@ -32,3 +33,45 @@ This will generate a message that looks something like so:
 myapp action=create_user at=start
 myapp action=create_user at=finish elapsed=0.003116
 ```
+
+###As a singleton:
+
+```ruby
+require 'datalogger'
+
+DataLogger::Logger.component = 'myapp'
+DataLogger::Logger.log a: 1, b: 2, c: 3
+```
+
+###As a mixin:
+
+```ruby
+require 'datalogger'
+
+class MyThing
+  include DataLogger
+  
+  def do_something
+    log(action: 'do_something') do
+	  # code goes here
+	end  
+  end
+end
+```
+
+#### For class methods:
+
+```ruby
+require 'datalogger'
+
+class MyThing
+  extend DataLogger
+  
+  def self.do_something
+    log(action: 'do_something') do
+	  # code goes here
+	end  
+  end
+end
+```
+
