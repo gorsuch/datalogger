@@ -1,17 +1,23 @@
 module DataLogger
   class Logger
     attr_accessor :component, :sinks
-
+        
+    def self.global_logger
+      @global_logger ||= new
+    end
+    
+    def self.component=(component)
+      global_logger.component = component
+    end
+    
+    def self.log(data, &blk)
+      global_logger.log(data, &blk)
+    end
+        
     def initialize(component='app')
       self.component = component
       self.sinks = []
       self.sinks << Sinks::STDOUT.new
-    end
-
-    def log_to_sinks(data)
-      self.sinks.each do |sink|
-        sink.log(self.component, data)
-      end
     end
 
     def log(data, &blk)
@@ -31,5 +37,11 @@ module DataLogger
         nil
       end
     end
+    
+    def log_to_sinks(data)
+      self.sinks.each do |sink|
+        sink.log(self.component, data)
+      end
+    end    
   end
 end
