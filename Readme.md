@@ -1,4 +1,4 @@
-# DataLogger (alpha)
+# DataLogger (alpha - API should be considered unstable)
 A simple structured data logger.  Pass it a hash, and it takes care of storing it to the data sink of your choice (currently stdout, though plugins are on the way).
 
 ## Usage
