@@ -43,7 +43,7 @@ DataLogger::Logger.component = 'myapp'
 DataLogger::Logger.log a: 1, b: 2, c: 3
 ```
 
-###As a mixin:
+### Mixing in instance methods
 
 ```ruby
 require 'datalogger'
@@ -59,8 +59,7 @@ class MyThing
 end
 ```
 
-#### For class methods:
-
+### Mixing in class methods
 ```ruby
 require 'datalogger'
 
