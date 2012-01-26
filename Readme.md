@@ -1,5 +1,5 @@
 # DataLogger (alpha - API should be considered unstable)
-A simple structured data logger.  Pass it a hash, and it takes care of storing it to the data sink of your choice (currently stdout, though plugins are on the way).
+A simple structured data logger.  Pass it a hash, and it takes care of emitting to stdout.
 
 Inspiration largely comes from ["The Twelve-Factor App"](http://www.12factor.net/logs) by Adam Wiggins, Mark McGranaghan's ["Logs as Data"](https://github.com/relevance/clojure-conj/blob/master/2011-slides/mark-mcgranaghan-logs-as-data.pdf) talk, and various experiments at [Heroku](http://heroku.com).
 
