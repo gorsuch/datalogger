@@ -3,11 +3,7 @@ require "datalogger/logger"
 require "datalogger/sinks/stdout"
 
 module DataLogger
-  def datalogger
-    Logger.global_logger
-  end
-  
   def log(data, &blk)
-    datalogger.log(data, &blk)          
+    Logger.global_logger.log(data, &blk)          
   end
 end
